@@ -1,70 +1,21 @@
-# Chrome Extension TypeScript Starter
+# chrometonote
 
-![build](https://github.com/chibat/chrome-extension-typescript-starter/workflows/build/badge.svg)
+send your current tabs to your tool for thought.
 
-Chrome Extension, TypeScript and Visual Studio Code
+# demo
 
-## Prerequisites
+https://www.loom.com/share/b21af3b94ebe43838bd5d4637f7bc9b6
 
-* [node + npm](https://nodejs.org/) (Current Version)
+# usage
 
-## Option
-
-* [Visual Studio Code](https://code.visualstudio.com/)
-
-## Includes the following
-
-* TypeScript
-* Webpack
-* React
-* Jest
-* Example Code
-    * Chrome Storage
-    * Options Version 2
-    * content script
-    * count up badge number
-    * background
-
-## Project Structure
-
-* src/typescript: TypeScript source files
-* src/assets: static files
-* dist: Chrome Extension directory
-* dist/js: Generated JavaScript files
-
-## Setup
-
-```
-npm install
-```
-
-## Import as Visual Studio Code project
-
-...
-
-## Build
+coming soon to chrome webstore. in the meantime, build locally:
 
 ```
 npm run build
 ```
 
-## Build in watch mode
+and load the [unpacked extension](https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/) into chrome
 
-### terminal
+# credit
 
-```
-npm run watch
-```
-
-### Visual Studio Code
-
-Run watch mode.
-
-type `Ctrl + Shift + B`
-
-## Load extension to chrome
-
-Load `dist` directory
-
-## Test
-`npx jest` or `npm run test`
+built with [chrome-extension-typescript-starter](https://github.com/chibat/chrome-extension-typescript-starter)
