@@ -1,4 +1,6 @@
-export const tabToMarkdown = (tab: chrome.tabs.Tab) => {
+export const tabOrBookmarkToMarkdown = (
+  tab: chrome.tabs.Tab | chrome.bookmarks.BookmarkTreeNode
+) => {
   const { title, url } = tab;
   if (title && url && title.length > 0 && url.length > 0) {
     return `[${title}](${url})`;
