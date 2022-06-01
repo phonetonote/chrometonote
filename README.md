@@ -16,6 +16,10 @@ npm run build
 
 and load the [unpacked extension](https://webkul.com/blog/how-to-install-the-unpacked-extension-in-chrome/) into chrome
 
+# options
+
+this extension requires a [phonetonote](https://phonetonote.com) account. put your ptn key in the chrometonote options:
+
 # credit
 
 built with [chrome-extension-typescript-starter](https://github.com/chibat/chrome-extension-typescript-starter)
