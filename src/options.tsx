@@ -36,17 +36,19 @@ const Options = () => {
 
   return (
     <>
-      <div>
-        ptn key{" "}
-        <input
-          value={ptnKey}
-          onChange={(event) => setPtnKey(event.target.value)}
-          type="password"
-          width={100}
-        />
+      <div style={{ minHeight: "300px" }}>
+        <div>
+          ptn key{" "}
+          <input
+            value={ptnKey}
+            onChange={(event) => setPtnKey(event.target.value)}
+            type="password"
+            width={100}
+          />
+        </div>
+        <div>{status}</div>
+        <button onClick={saveOptions}>Save</button>
       </div>
-      <div>{status}</div>
-      <button onClick={saveOptions}>Save</button>
     </>
   );
 };
