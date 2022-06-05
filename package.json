@@ -1,6 +1,6 @@
 {
   "name": "chrometonote",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "description": "chrometonote - send your tabs from chrome to your tool for thought",
   "main": "index.js",
   "scripts": {
