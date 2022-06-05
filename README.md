@@ -8,7 +8,7 @@ https://www.loom.com/share/b21af3b94ebe43838bd5d4637f7bc9b6
 
 # usage
 
-coming soon to chrome webstore. in the meantime, build locally:
+available in the [chrome webstore](https://chrome.google.com/webstore/detail/chrometonote/gcmgnllgankcoijeoniebkblidmlppbf), or build locally:
 
 ```
 npm run build
