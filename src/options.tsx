@@ -42,7 +42,7 @@ const Options = () => {
           <input
             value={ptnKey}
             onChange={(event) => setPtnKey(event.target.value)}
-            type="password"
+            type="text"
             width={100}
           />
         </div>
