@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ctnTitle } from "../utils/ctnTitle";
+import { getSettings } from "../utils/storageDefaults";
 import { tabOrBookmarkToMarkdown } from "../utils/tabOrBookmarkToMarkdown";
 import Heading from "./Heading";
 import MyStyledButton from "./MyStyledButton";
@@ -37,12 +38,16 @@ function BookmarkButton() {
   const [folders, setFolders] = useState<Folder[]>([]);
 
   const getBody = async (folder: Folder) => {
+    const settings = await getSettings();
     const bookmarks = await chrome.bookmarks.getChildren(folder.id);
     const attachments = bookmarks.map((bookmark) =>
       tabOrBookmarkToMarkdown(bookmark)
     );
+    const hashtag = settings.bookmarkHashtag
+      ? `${settings.bookmarkHashtag} — ${folder.title}`
+      : folder.title;
     return {
-      body: ctnTitle(`[[ptn bookmark sync]] — ${folder.title}`),
+      body: ctnTitle(settings.prefixText, hashtag),
       attachments,
     };
   };

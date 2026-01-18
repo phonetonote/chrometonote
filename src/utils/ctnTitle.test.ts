@@ -2,17 +2,25 @@ import { describe, it, expect } from "vitest";
 import { ctnTitle } from "./ctnTitle";
 
 describe("ctnTitle", () => {
-  it("prepends #chrometonote to the hashtag", () => {
-    expect(ctnTitle("[[test]]")).toBe("#chrometonote [[test]]");
+  it("combines prefix and hashtag with a space", () => {
+    expect(ctnTitle("#chrometonote", "[[test]]")).toBe("#chrometonote [[test]]");
   });
 
-  it("handles empty string", () => {
-    expect(ctnTitle("")).toBe("#chrometonote ");
+  it("returns just the hashtag when prefix is empty", () => {
+    expect(ctnTitle("", "[[test]]")).toBe("[[test]]");
   });
 
-  it("handles complex hashtags", () => {
-    expect(ctnTitle("[[ptn active tab sync]]")).toBe(
-      "#chrometonote [[ptn active tab sync]]"
+  it("returns just the prefix when hashtag is empty", () => {
+    expect(ctnTitle("#chrometonote", "")).toBe("#chrometonote");
+  });
+
+  it("returns empty string when both are empty", () => {
+    expect(ctnTitle("", "")).toBe("");
+  });
+
+  it("handles complex prefixes and hashtags", () => {
+    expect(ctnTitle("my-prefix", "[[ptn active tab sync]]")).toBe(
+      "my-prefix [[ptn active tab sync]]"
     );
   });
 });

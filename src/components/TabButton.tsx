@@ -1,9 +1,10 @@
 import React from "react";
 import { ctnTitle } from "../utils/ctnTitle";
+import { getSettings, StorageSettings } from "../utils/storageDefaults";
 import { tabOrBookmarkToMarkdown } from "../utils/tabOrBookmarkToMarkdown";
 import SyncButton from "./SyncButton";
 
-type TabButtonType = "currentWindow" | "activeTab" | "allWindows";
+export type TabButtonType = "currentWindow" | "activeTab" | "allWindows";
 
 const buttonTypeToTabQuery: { [key in TabButtonType]: chrome.tabs.QueryInfo } =
   {
@@ -12,10 +13,12 @@ const buttonTypeToTabQuery: { [key in TabButtonType]: chrome.tabs.QueryInfo } =
     allWindows: {},
   };
 
-const buttonTypeToHashtag: { [key in TabButtonType]: string } = {
-  currentWindow: "[[ptn current window sync]]",
-  activeTab: "[[ptn active tab sync]]",
-  allWindows: "[[ptn all windows sync]]",
+const buttonTypeToHashtagKey: {
+  [key in TabButtonType]: keyof StorageSettings;
+} = {
+  currentWindow: "currentWindowHashtag",
+  activeTab: "activeTabHashtag",
+  allWindows: "allWindowsHashtag",
 };
 
 const buttonTypeToButtonText: { [key in TabButtonType]: string } = {
@@ -37,8 +40,10 @@ type TabButtonProps = {
 
 function TabButton({ tabButtonType }: TabButtonProps) {
   const getSyncBody = async () => {
+    const settings = await getSettings();
+    const hashtag = settings[buttonTypeToHashtagKey[tabButtonType]] as string;
     return {
-      body: ctnTitle(buttonTypeToHashtag[tabButtonType]),
+      body: ctnTitle(settings.prefixText, hashtag),
       attachments: await tabsToMarkdown(buttonTypeToTabQuery[tabButtonType]),
     };
   };
