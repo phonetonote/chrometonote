@@ -3,7 +3,6 @@ import { ctnTitle } from "../utils/ctnTitle";
 import { tabOrBookmarkToMarkdown } from "../utils/tabOrBookmarkToMarkdown";
 import Heading from "./Heading";
 import MyStyledButton from "./MyStyledButton";
-import StyledButton from "./MyStyledButton";
 import SyncButton from "./SyncButton";
 
 type Folder = {

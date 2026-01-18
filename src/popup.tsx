@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
+import { createRoot } from "react-dom/client";
 import BookmarkButton from "./components/BookmarkButton";
 import TabButton from "./components/TabButton";
 
@@ -14,9 +14,9 @@ const Popup = () => {
   );
 };
 
-ReactDOM.render(
+const root = createRoot(document.getElementById("root")!);
+root.render(
   <React.StrictMode>
     <Popup />
-  </React.StrictMode>,
-  document.getElementById("root")
+  </React.StrictMode>
 );

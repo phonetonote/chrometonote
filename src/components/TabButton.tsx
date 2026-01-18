@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ctnTitle } from "../utils/ctnTitle";
 import { tabOrBookmarkToMarkdown } from "../utils/tabOrBookmarkToMarkdown";
 import SyncButton from "./SyncButton";
@@ -23,8 +23,6 @@ const buttonTypeToButtonText: { [key in TabButtonType]: string } = {
   activeTab: "current tab",
   allWindows: "all tabs",
 };
-
-const APP_URL = "https://app.phonetonote.com";
 
 const tabsToMarkdown = async (tabQuery: chrome.tabs.QueryInfo) => {
   const tabs = await chrome.tabs.query(tabQuery);
